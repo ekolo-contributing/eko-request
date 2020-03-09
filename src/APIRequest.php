@@ -13,7 +13,7 @@
          * @param array $vars Les variables à passer dans le callback
          * @param \Closure $callback La fonction callback à appeler
          */
-        public static function post(string $url, array $data, arrry $vars = null, $callback = null)
+        public static function post(string $url, array $data, array $vars = null, $callback = null)
         {
             $curl = curl_init($url);
 
@@ -106,7 +106,7 @@
          * @param \Closure $callback
          * @return void|object
          */
-        public static function delete(string $url, $data = null, $vars = null, $callback = null)
+        public static function delete(string $url, $data = null, array $vars = null, $callback = null)
         {
             $content = stream_context_create([
                 'http' => [
