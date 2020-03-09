@@ -1,0 +1,21 @@
+{
+    "name": "ekolo/eko-request",
+    "description": "Librairie PHP permettant de lancer des reque\u0000tes vers un serveur distant (par vers une api)",
+    "type": "library",
+    "keywords": ["request-api", "api", "request-http", "eko-request"],
+    "require": {
+        "ekolo/eko-helpers": "^0.3.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Don de Dieu BOLENGE",
+            "email": "dondedieubolenge@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ekolo\\Components\\EkoRequest\\": "src/"
+        }
+    }
+}
