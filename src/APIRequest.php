@@ -107,7 +107,7 @@
          * @param \Closure $callback
          * @return void|object
          */
-        public static function delete(string $url, $data = null, $vars = null, $callback = null)
+        public static function delete(string $url, $data = null, array $vars = null, $callback = null)
         {
             $content = stream_context_create([
                 'http' => [
