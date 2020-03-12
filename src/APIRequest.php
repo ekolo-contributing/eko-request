@@ -13,16 +13,17 @@
          * @param array $vars Les variables à passer dans le callback
          * @param \Closure $callback La fonction callback à appeler
          */
-        public static function post(string $url, array $data, arrry $vars = null, $callback = null)
+        public static function post(string $url, array $data, array $vars = null, $callback = null)
         {
             $curl = curl_init($url);
 
             // CURLOPT_TIMEOUT		   => 5,
             curl_setopt_array($curl, [
+                CURLOPT_POST, true,
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POSTFIELDS     => $data
+                CURLOPT_POSTFIELDS     => http_build_query($data)
             ]);
-
+            
             $response = curl_exec($curl);
 
             if ($response === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) {
