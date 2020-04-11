@@ -1,11 +1,20 @@
 <?php 
-    namespace Ekolo\Components\EkoRequest;
+	namespace Ekolo\Components\EkoRequest;
 
 	/**
 	 * Gère comment envoyer les différentes requêtes http vers l'API
 	 */
-	class APIRequest
+	class RequestStreamContent
 	{
+        /**
+         * Headers par défaut
+         * @var array
+         */
+        public static $headers = [
+            'Accept: application/json',
+            'Content-Type: application/x-www-form-urlencoded'
+        ];
+
         /**
          * Permet de lancer une requête post vers l'API
          * @param string $url L'url à demander les ressources
@@ -13,7 +22,7 @@
          * @param array $vars Les variables à passer dans le callback
          * @param \Closure $callback La fonction callback à appeler
          */
-        public static function post(string $url, array $data, array $vars = [], $callback = null, array $headers = [])
+        public static function post(string $url, array $data, array $vars = [], array $headers = [], $callback = null)
         {
             $headers = array_merge([
                 'Accept: application/json',
@@ -82,7 +91,7 @@
          * @param \Closure $callback La fonction callback à appeler
          * @return void|object
          */
-        public static function get(string $url, array $vars = [], $callback = null, array $headers = [])
+        public static function get(string $url, array $vars = [], array $headers = [], $callback = null)
         {
             $headers = array_merge([
                 'Accept: application/json',
@@ -110,7 +119,7 @@
          * @param \Closure $callback
          * @return void|object
          */
-        public static function put(string $url, array $data = [], array $vars = [], $callback = null, array $headers = [])
+        public static function put(string $url, array $data = [], array $vars = [], $callback = null)
         {
             $headers = array_merge([
                 'Accept: application/json',
@@ -139,7 +148,7 @@
          * @param \Closure $callback
          * @return void|object
          */
-        public static function delete(string $url, array $data = [], array $vars = [], $callback = null, array $headers = [])
+        public static function delete(string $url, array $data = [], array $vars = [], $callback = null)
         {
             $headers = array_merge([
                 'Accept: application/json',

@@ -20,7 +20,7 @@ APIRequest::get('http://monsite:3000/users/getUsers', null, function ($results, 
 });
 ```
 
-## APIRequest::get(string $url, array $vars = null, $callback = null)
+## APIRequest::get(string $url, array $vars = null, $callback = null, array $headers = [])
 
 Permet de lancer une requête `http` de type `GET` vers l'url passé en paramètre
 
@@ -29,6 +29,7 @@ Permet de lancer une requête `http` de type `GET` vers l'url passé en paramèt
 * `$callback($results, $vars)`: C'est la fonction à appeler elle contient :
     * `$results` : C'est le résultat (response) reçu auprès de l'url où on a lancé la requête
     * `$vars` : Ce sont les variables qu'on a passées à la callback 
+* `$headers`: Les headers à passer dans la requête à envoyer
     
 [Note] Si vous n'avez pas spécifié la fonction `$callbakc`, cela va retourner les `$results`
 
@@ -48,7 +49,7 @@ APIRequest::get('http://monsite:3000/users/getUserById/3', $vars, function ($res
 });
 ```
     
-## APIRequest::post(string $url, array $data, array $vars = null, $callback = null)
+## APIRequest::post(string $url, array $data, array $vars = null, $callback = null, array $headers = [])
 
 Permet de lancer une requête `http` de type `POST` vers l'url passé en paramètre
 
@@ -58,6 +59,7 @@ Permet de lancer une requête `http` de type `POST` vers l'url passé en paramè
 * `$callback($results, $vars)`: C'est la fonction à appeler elle contient :
     * `$results` : C'est le résultat (response) reçu auprès de l'url où on a lancé la requête
     * `$vars` : Ce sont les variables qu'on a passées à la callback 
+* `$headers`: Les headers à passer dans la requête à envoyer
     
 [Note] Si vous n'avez pas spécifié la fonction `$callbakc`, cela va retourner les `$results`
 
@@ -83,7 +85,7 @@ APIRequest::post('http://monsite:3000/users/create', $user, $vars, function ($re
 });
 ```
 
-## APIRequest::put(string $url, array $data, array $vars = null, $callback = null)
+## APIRequest::put(string $url, array $data, array $vars = null, $callback = null, array $headers = [])
 
 Permet de lancer une requête `http` de type `PUT` vers l'url passé en paramètre
 
@@ -93,6 +95,7 @@ Permet de lancer une requête `http` de type `PUT` vers l'url passé en paramèt
 * `$callback($results, $vars)`: C'est la fonction à appeler elle contient :
     * `$results` : C'est le résultat (response) reçu auprès de l'url où on a lancé la requête
     * `$vars` : Ce sont les variables qu'on a passées à la callback 
+* `$headers`: Les headers à passer dans la requête à envoyer
     
 [Note] Si vous n'avez pas spécifié la fonction `$callbakc`, cela va retourner les `$results`
 
@@ -119,7 +122,7 @@ APIRequest::put('http://monsite:3000/users/update/3', $user, $vars, function ($r
 });
 ```
 
-## APIRequest::delete(string $url, array $data, array $vars = null, $callback = null)
+## APIRequest::delete(string $url, array $data, array $vars = null, $callback = null, array $headers = [])
 
 Permet de lancer une requête `http` de type `DELETE` vers l'url passé en paramètre
 
@@ -128,7 +131,8 @@ Permet de lancer une requête `http` de type `DELETE` vers l'url passé en param
 * `$vars`: Ce sont des variables qu'on veut passer à la fonction callback
 * `$callback($results, $vars)`: C'est la fonction à appeler elle contient :
     * `$results` : C'est le résultat (response) reçu auprès de l'url où on a lancé la requête
-    * `$vars` : Ce sont les variables qu'on a passées à la callback 
+    * `$vars` : Ce sont les variables qu'on a passées à la callback
+* `$headers`: Les headers à passer dans la requête à envoyer
     
 [Note] Si vous n'avez pas spécifié la fonction `$callbakc`, cela va retourner les `$results`
 
